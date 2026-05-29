@@ -1,0 +1,33 @@
+.DS_Store
+.cache
+.claude
+build
+
+# third_party build files
+third_party/build
+third_party/libs
+third_party/bin
+third_party/.cache
+
+# MuJoCo: not needed for compilation
+third_party/*/.github
+third_party/*/dist
+third_party/*/doc
+third_party/*/mjx
+third_party/*/model
+third_party/*/python
+third_party/*/sample
+third_party/*/simulate
+third_party/*/test
+third_party/*/unity
+third_party/*/.readthedocs.yml
+third_party/*/CONTRIBUTING.md
+third_party/*/SECURITY.md
+third_party/*/STYLEGUIDE.md
+third_party/*/banner.png
+
+# GLFW: not needed for compilation
+third_party/*/docs/
+
+# run
+MUJOCO_LOG.txt

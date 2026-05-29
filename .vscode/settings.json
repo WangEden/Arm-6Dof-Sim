@@ -1,0 +1,6 @@
+{
+  "cmake.debugConfig": {
+    "cwd": "${workspaceFolder}"
+  },
+  "cmake.launchBehavior": "singleLaunch"
+}

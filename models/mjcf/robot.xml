@@ -1,0 +1,47 @@
+<mujoco model="HiFiFLYRobot">
+  <compiler angle="radian" meshdir="../urdf"/>
+
+  <asset>
+    <mesh name="Base_Link" file="Base_Link.STL"/>
+    <mesh name="Shoulder_Link" file="Shoulder_Link.STL"/>
+    <mesh name="UpperArm_Link" file="UpperArm_Link.STL"/>
+    <mesh name="ForeArm_Link" file="ForeArm_Link.STL"/>
+    <mesh name="Wrist1_Link" file="Wrist1_Link.STL"/>
+    <mesh name="Wrist2_Link" file="Wrist2_Link.STL"/>
+    <mesh name="End_Link" file="End_Link.STL"/>
+  </asset>
+
+  <worldbody>
+    <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="Base_Link"/>
+    <body name="Shoulder_Link" pos="0 0 0.1307">
+      <inertial pos="-0.00019472 0.0024977 -0.034161" quat="-0.0373374 0.706115 -0.0373263 0.706126" mass="0.63547" diaginertia="0.00178873 0.00162457 0.0010209"/>
+      <joint name="Base_Joint" pos="0 0 0" axis="0 0 1" range="-6.28 6.28" actuatorfrcrange="-1 1" damping="1" frictionloss="1"/>
+      <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="Shoulder_Link"/>
+      <body name="UpperArm_Link" quat="-2.59734e-06 2.59735e-06 -0.707108 0.707105">
+        <inertial pos="0.19767 2.1176e-05 -0.00036858" quat="-0.000239088 0.713707 -0.000132845 0.700445" mass="0.93077" diaginertia="0.00188805 0.0017969 0.00060821"/>
+        <joint name="Shoulder_Joint" pos="0 0 0" axis="0 0 1" range="-3.1415 0" actuatorfrcrange="-1 1" damping="1" frictionloss="1"/>
+        <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="UpperArm_Link"/>
+        <body name="ForeArm_Link" pos="0.334 0 0" quat="-2.59734e-06 0.707105 -0.707108 2.59735e-06">
+          <inertial pos="0.0746393 0.0953397 -0.00156761" quat="0.712182 0.58362 -0.367394 -0.131172" mass="0.895504" diaginertia="0.00153367 0.00147875 0.000971084"/>
+          <joint name="Elbow_Joint" pos="0 0 0" axis="0 0 1" range="-3.1415 0" actuatorfrcrange="-1 1" damping="1" frictionloss="1"/>
+          <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="ForeArm_Link"/>
+          <body name="Wrist1_Link" pos="0.0955 0.30739 0" quat="0.707105 -0.707108 0 0">
+            <inertial pos="2.9873e-07 0.0056498 -0.0060226" quat="0.696737 -0.121013 0.121567 0.696516" mass="0.30894" diaginertia="0.000293822 0.00025349 0.000232258"/>
+            <joint name="Wrist1_Joint" pos="0 0 0" axis="0 0 1" range="-6.28 6.28" actuatorfrcrange="-1 1" damping="1" frictionloss="1"/>
+            <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="Wrist1_Link"/>
+            <body name="Wrist2_Link" quat="0.707105 0.707108 0 0">
+              <inertial pos="3.86e-08 0.043644 0.011813" quat="0.606726 0.363157 -0.363157 0.606726" mass="0.18314" diaginertia="0.000362915 0.00033593 0.000151045"/>
+              <joint name="Wrist2_Joint" pos="0 0 0" axis="0 0 1" range="-2.1 2.1" actuatorfrcrange="-1 1" damping="1" frictionloss="1"/>
+              <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="Wrist2_Link"/>
+              <body name="End_Link" pos="0 0.094 0" quat="0.707105 -0.707108 0 0">
+                <inertial pos="7.99387e-05 -1.53816e-06 -0.0218813" quat="0.330453 0.626545 -0.329261 0.624363" mass="0.102675" diaginertia="4.20263e-05 3.01492e-05 3.00908e-05"/>
+                <joint name="Wrist3_Joint" pos="0 0 0" axis="0 0 1" range="-6.28 6.28" actuatorfrcrange="-1 1" damping="1" frictionloss="1"/>
+                <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="End_Link"/>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>

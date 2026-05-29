@@ -1,0 +1,26 @@
+<mujoco model="World">
+  <compiler angle="radian" autolimits="true" meshdir="../urdf"/>
+
+  <option timestep="0.002" gravity="0 0 -9.81" wind="0 0 0" integrator="implicitfast" density="1.225" viscosity="1.8e-5"/>
+
+  <visual>
+    <global realtime="1" />
+    <quality shadowsize="16384" numslices="28" offsamples="4"/>
+    <headlight diffuse="0.5 0.5 0.5" specular="0.5 0.5 0.5" active="1"/>
+    <rgba fog="0 1 0 1" haze="0.2 0.2 0.2 1" />
+  </visual>
+
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" width="512" height="512"
+             rgb1="0.8 0.8 0.8" rgb2="0.6 0.6 0.6"/>
+    <material name="grid" texture="grid" texrepeat="8 8" reflectance="0.2"/>
+  </asset>
+
+  <worldbody>
+    <light directional="true" pos="0 0 3" dir="0 0 -1" diffuse="0.8 0.8 0.8"/>
+    <geom name="floor" type="plane" size="5 5 0.1" material="grid"/>
+    <camera name="overview" pos="1.2 1.2 0.8" xyaxes="-1 1 0 -0.5 -0.5 0.8"/>
+  </worldbody>
+
+  <include file="robot.xml"/>
+</mujoco>

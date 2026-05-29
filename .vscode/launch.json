@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run sim_arm",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/sim_arm",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "MIMode": "lldb"
+    }
+  ]
+}
