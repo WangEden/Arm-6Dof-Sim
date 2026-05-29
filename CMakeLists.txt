@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.16)
-project(ScratchArm6DoFSim LANGUAGES C CXX OBJC OBJCXX)
+if(APPLE)
+  project(ScratchArm6DoFSim LANGUAGES C CXX OBJC OBJCXX)
+else()
+  project(ScratchArm6DoFSim LANGUAGES C CXX)
+endif()
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
