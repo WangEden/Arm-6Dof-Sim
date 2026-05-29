@@ -14,10 +14,7 @@ third_party/*/.github
 third_party/*/dist
 third_party/*/doc
 third_party/*/mjx
-third_party/*/model
 third_party/*/python
-third_party/*/sample
-third_party/*/simulate
 third_party/*/test
 third_party/*/unity
 third_party/*/.readthedocs.yml
