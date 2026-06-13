@@ -93,8 +93,9 @@ set(BUILD_SHARED_LIBS
 if(NOT TARGET lodepng)
   FetchContent_Declare(
     lodepng
-    GIT_REPOSITORY https://github.com/lvandeve/lodepng.git
-    GIT_TAG ${MUJOCO_DEP_VERSION_lodepng}
+    # GIT_REPOSITORY https://github.com/lvandeve/lodepng.git
+    # GIT_TAG ${MUJOCO_DEP_VERSION_lodepng}
+    URL "${CMAKE_CURRENT_SOURCE_DIR}/../mujoco_deps/lodepng.tar.gz"
   )
 
   FetchContent_GetProperties(lodepng)
@@ -113,8 +114,9 @@ endif()
 if(NOT TARGET marchingcubecpp)
   FetchContent_Declare(
     marchingcubecpp
-    GIT_REPOSITORY https://github.com/aparis69/MarchingCubeCpp.git
-    GIT_TAG ${MUJOCO_DEP_VERSION_MarchingCubeCpp}
+    # GIT_REPOSITORY https://github.com/aparis69/MarchingCubeCpp.git
+    # GIT_TAG ${MUJOCO_DEP_VERSION_MarchingCubeCpp}
+    URL "${CMAKE_CURRENT_SOURCE_DIR}/../mujoco_deps/MarchingCubeCpp.tar.gz"
   )
 
   FetchContent_GetProperties(marchingcubecpp)
@@ -126,21 +128,29 @@ endif()
 
 set(QHULL_ENABLE_TESTING OFF)
 
-findorfetch(
-  USE_SYSTEM_PACKAGE
-  OFF
-  PACKAGE_NAME
-  qhull
-  LIBRARY_NAME
-  qhull
-  GIT_REPO
-  https://github.com/qhull/qhull.git
-  GIT_TAG
-  ${MUJOCO_DEP_VERSION_qhull}
-  TARGETS
-  qhull
-  EXCLUDE_FROM_ALL
-)
+if(NOT TARGET qhull)
+  FetchContent_Declare(
+    qhull
+    URL "${CMAKE_CURRENT_SOURCE_DIR}/../mujoco_deps/qhull.tar.gz"
+  )
+  FetchContent_MakeAvailable(qhull)
+endif()
+
+# findorfetch(
+#   USE_SYSTEM_PACKAGE
+#   OFF
+#   PACKAGE_NAME
+#   qhull
+#   LIBRARY_NAME
+#   qhull
+#   GIT_REPO
+#   https://github.com/qhull/qhull.git
+#   GIT_TAG
+#   ${MUJOCO_DEP_VERSION_qhull}
+#   TARGETS
+#   qhull
+#   EXCLUDE_FROM_ALL
+# )
 # MuJoCo includes a file from libqhull_r which is not exported by the qhull include directories.
 # Add it to the target.
 target_include_directories(
@@ -150,21 +160,30 @@ target_compile_options(qhullstatic_r PRIVATE ${MUJOCO_MACOS_COMPILE_OPTIONS})
 target_link_options(qhullstatic_r PRIVATE ${MUJOCO_MACOS_LINK_OPTIONS})
 
 set(tinyxml2_BUILD_TESTING OFF)
-findorfetch(
-  USE_SYSTEM_PACKAGE
-  OFF
-  PACKAGE_NAME
-  tinyxml2
-  LIBRARY_NAME
-  tinyxml2
-  GIT_REPO
-  https://github.com/leethomason/tinyxml2.git
-  GIT_TAG
-  ${MUJOCO_DEP_VERSION_tinyxml2}
-  TARGETS
-  tinyxml2
-  EXCLUDE_FROM_ALL
-)
+
+if(NOT TARGET tinyxml2)
+  FetchContent_Declare(
+    tinyxml2
+    URL "${CMAKE_CURRENT_SOURCE_DIR}/../mujoco_deps/tinyxml2.tar.gz"
+  )
+  FetchContent_MakeAvailable(tinyxml2)
+endif()
+
+# findorfetch(
+#   USE_SYSTEM_PACKAGE
+#   OFF
+#   PACKAGE_NAME
+#   tinyxml2
+#   LIBRARY_NAME
+#   tinyxml2
+#   GIT_REPO
+#   https://github.com/leethomason/tinyxml2.git
+#   GIT_TAG
+#   ${MUJOCO_DEP_VERSION_tinyxml2}
+#   TARGETS
+#   tinyxml2
+#   EXCLUDE_FROM_ALL
+# )
 target_compile_options(tinyxml2 PRIVATE ${MUJOCO_MACOS_COMPILE_OPTIONS})
 target_link_options(tinyxml2 PRIVATE ${MUJOCO_MACOS_LINK_OPTIONS})
 
@@ -173,21 +192,30 @@ if(NOT DEFINED CMAKE_POLICY_VERSION_MINIMUM)
   set(CMAKE_POLICY_VERSION_MINIMUM ${MUJOCO_CMAKE_MIN_REQ})
   set(CMAKE_POLICY_VERSION_MINIMUM_LOCALLY_DEFINED ON)
 endif()
-findorfetch(
-  USE_SYSTEM_PACKAGE
-  OFF
-  PACKAGE_NAME
-  tinyobjloader
-  LIBRARY_NAME
-  tinyobjloader
-  GIT_REPO
-  https://github.com/tinyobjloader/tinyobjloader.git
-  GIT_TAG
-  ${MUJOCO_DEP_VERSION_tinyobjloader}
-  TARGETS
-  tinyobjloader
-  EXCLUDE_FROM_ALL
-)
+
+if(NOT TARGET tinyobjloader)
+  FetchContent_Declare(
+    tinyobjloader
+    URL "${CMAKE_CURRENT_SOURCE_DIR}/../mujoco_deps/tinyobjloader.tar.gz"
+  )
+  FetchContent_MakeAvailable(tinyobjloader)
+endif()
+
+# findorfetch(
+#   USE_SYSTEM_PACKAGE
+#   OFF
+#   PACKAGE_NAME
+#   tinyobjloader
+#   LIBRARY_NAME
+#   tinyobjloader
+#   GIT_REPO
+#   https://github.com/tinyobjloader/tinyobjloader.git
+#   GIT_TAG
+#   ${MUJOCO_DEP_VERSION_tinyobjloader}
+#   TARGETS
+#   tinyobjloader
+#   EXCLUDE_FROM_ALL
+# )
 if(CMAKE_POLICY_VERSION_MINIMUM_LOCALLY_DEFINED)
   unset(CMAKE_POLICY_VERSION_MINIMUM)
   unset(CMAKE_POLICY_VERSION_MINIMUM_LOCALLY_DEFINED)
@@ -196,8 +224,9 @@ endif()
 if(NOT TARGET trianglemeshdistance)
   FetchContent_Declare(
     trianglemeshdistance
-    GIT_REPOSITORY https://github.com/InteractiveComputerGraphics/TriangleMeshDistance.git
-    GIT_TAG ${MUJOCO_DEP_VERSION_TriangleMeshDistance}
+    # GIT_REPOSITORY https://github.com/InteractiveComputerGraphics/TriangleMeshDistance.git
+    # GIT_TAG ${MUJOCO_DEP_VERSION_TriangleMeshDistance}
+    URL "${CMAKE_CURRENT_SOURCE_DIR}/../mujoco_deps/TriangleMeshDistance.tar.gz"
   )
 
   FetchContent_GetProperties(trianglemeshdistance)
@@ -214,21 +243,28 @@ if(NOT DEFINED CMAKE_POLICY_VERSION_MINIMUM)
   set(CMAKE_POLICY_VERSION_MINIMUM ${MUJOCO_CMAKE_MIN_REQ})
   set(CMAKE_POLICY_VERSION_MINIMUM_LOCALLY_DEFINED ON)
 endif()
-findorfetch(
-  USE_SYSTEM_PACKAGE
-  OFF
-  PACKAGE_NAME
-  ccd
-  LIBRARY_NAME
-  ccd
-  GIT_REPO
-  https://github.com/danfis/libccd.git
-  GIT_TAG
-  ${MUJOCO_DEP_VERSION_ccd}
-  TARGETS
-  ccd
-  EXCLUDE_FROM_ALL
-)
+if(NOT TARGET ccd)
+  FetchContent_Declare(
+    ccd
+    URL "${CMAKE_CURRENT_SOURCE_DIR}/../mujoco_deps/libccd.tar.gz"
+  )
+  FetchContent_MakeAvailable(ccd)
+endif()
+# findorfetch(
+#   USE_SYSTEM_PACKAGE
+#   OFF
+#   PACKAGE_NAME
+#   ccd
+#   LIBRARY_NAME
+#   ccd
+#   GIT_REPO
+#   https://github.com/danfis/libccd.git
+#   GIT_TAG
+#   ${MUJOCO_DEP_VERSION_ccd}
+#   TARGETS
+#   ccd
+#   EXCLUDE_FROM_ALL
+# )
 if(CMAKE_POLICY_VERSION_MINIMUM_LOCALLY_DEFINED)
   unset(CMAKE_POLICY_VERSION_MINIMUM)
   unset(CMAKE_POLICY_VERSION_MINIMUM_LOCALLY_DEFINED)

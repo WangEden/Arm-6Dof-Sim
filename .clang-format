@@ -1,0 +1,17 @@
+BasedOnStyle: LLVM
+IndentWidth: 4
+AccessModifierOffset: -4
+AlignConsecutiveMacros: Consecutive
+AlignConsecutiveAssignments: None
+AlignConsecutiveDeclarations: None
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterClass: true
+  AfterStruct: true
+  AfterFunction: true
+AllowShortEnumsOnASingleLine: false
+BinPackParameters: false
+BinPackArguments: false
+AlignAfterOpenBracket: Align
+ColumnLimit: 120
+NamespaceIndentation: All
